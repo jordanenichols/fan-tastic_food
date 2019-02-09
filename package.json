@@ -1,0 +1,33 @@
+{
+  "name": "fan-tastic_food",
+  "version": "1.0.0",
+  "description": "Avoid the lines, order food right from your seat!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanenichols/fan-tastic_food.git"
+  },
+  "keywords": [
+    "Food",
+    "Fantastic",
+    "Stadium",
+    "Fast",
+    "Lines"
+  ],
+  "author": "Paul Stephen Hutchinson Maltaghati, Jordan Nichols, Xavier Ruiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanenichols/fan-tastic_food/issues"
+  },
+  "homepage": "https://github.com/jordanenichols/fan-tastic_food#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "mongojs": "^2.6.0",
+    "twilio": "^3.28.0"
+  }
+}
