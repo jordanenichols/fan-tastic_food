@@ -35,6 +35,8 @@ app.get('/', function (req, res) {
             stadiums: docs[0].stadiums, // array of stadiums
             errors: null
         });
+        // console.log(docs[0].stadiums);
+        res.end('hi');
     });
 
 });

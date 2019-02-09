@@ -3,7 +3,7 @@
 <ul>
     <% if(errors) { %>
     <% errors.forEach(function(error){ %>
-    <li> 
+    <li>
         <%=error.msg%>
     </li>
     <% }) %>
@@ -27,10 +27,55 @@
 <ul>
     <% stadiums.forEach(function(stadium){ %>
     <li>
-        
+
         <%=stadium.name%>
 
         <a class="delete" href="#" data-id="">delete</a>
+
+        <ul>
+            <% stadium.vendors.forEach(function(vendor){ %>
+            <li>
+                <!-- names of vendors -->
+                <%=vendor.name%>
+                <ul>
+                    <% vendor.foodItems.forEach(function(foodItem){ %>
+                    <li>
+                        <!-- food items for each vendor -->
+                        <%=foodItem.name%>
+                    </li>
+                    <li>
+                        <!-- price of food item -->
+                        <%=foodItem.price%>
+                    </li>
+                    <li>
+                        <!-- number of food item -->
+                        <%=foodItem.amount%>
+                    </li>
+
+                    <% }) %>
+                </ul>
+
+            </li>
+            <li>
+                <ul>
+                    <% vendor.orders.forEach(function(order){ %>
+                    <li>
+                        <%=order.customer[0].firstName%>
+                    </li>
+                    <li>
+                        <%=order.customer[0].lastName%>
+                    </li>
+                    <li>
+                        <%=order.customer[0].phoneNumber%>
+                    </li>
+                    <% }) %>
+
+                </ul>
+            </li>
+            <% }) %>
+
+        </ul>
+
     </li>
     <% }) %>
 </ul>
