@@ -4,7 +4,7 @@
   "description": "Avoid the lines, order food right from your seat!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "initDatabase": ""
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/jordanenichols/fan-tastic_food#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "mongojs": "^2.6.0",

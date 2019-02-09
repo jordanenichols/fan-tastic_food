@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
+
 const { check, validationResult } = require('express-validator/check');
 var app = express();
 
@@ -26,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Home route
 app.get('/', function (req, res) {
     db.users.find(function (err, docs) {
-        // console.log(docs);
+        if(err) console.log(err);
         res.render('index', {
             title: 'Customer',
             users: docs,
