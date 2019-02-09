@@ -4,13 +4,14 @@
   "description": "Avoid the lines, order food right from your seat!",
   "main": "index.js",
   "scripts": {
-    "initDatabase": ""
+    "initDatabase": "node createDatabase.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jordanenichols/fan-tastic_food.git"
   },
   "keywords": [
+
     "Food",
     "Fantastic",
     "Stadium",

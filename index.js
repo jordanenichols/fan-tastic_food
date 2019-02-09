@@ -8,7 +8,8 @@ const { check, validationResult } = require('express-validator/check');
 var app = express();
 
 // MongoJs middleware
-var db = mongojs('globalOrders', ['globalOrderCollection']);
+var db = mongojs('globalOrders', ['globalOrdersCollection']);
+
 
 // View engine
 app.set('view engine', 'ejs');
@@ -26,14 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get('/', function (req, res) {
-    db.users.find(function (err, docs) {
+    db.globalOrdersCollection.find(function (err, docs) {
         if(err) console.log(err);
+        console.log(docs[0].stadiums);
         res.render('index', {
-            title: 'Customer',
-            users: docs,
+            title: 'Stadiums',
+            stadiums: docs[0].stadiums, // array of stadiums
             errors: null
         });
-        res.end('ppo');
     });
 
 });
@@ -53,10 +54,10 @@ app.post('/users/add', [
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        db.users.find(function (err, docs) {
+        db.globalOrdersCollection.find(function (err, docs) {
             res.render('index', {
                 title: 'Customers',
-                users: docs,
+                users: docs[0].stadiums,
                 errors: errors.array()
             });
         })
@@ -72,7 +73,7 @@ app.post('/users/add', [
             email: req.body.email
         }
 
-        db.users.insert(newUser, function (err, result) {
+        db.globalOrdersCollection.insert(newUser, function (err, result) {
             if (err) console.log(err);
             res.redirect('/');
             return;
@@ -88,12 +89,12 @@ app.post('/users/add', [
 
 app.delete("/users/delete/:id", function(req, res){
     var person;
-    db.users.find({_id:mongojs.ObjectId(req.params.id)}, function(err1, docs){
+    db.globalOrdersCollection.find({_id:mongojs.ObjectId(req.params.id)}, function(err1, docs){
         if(err1) {
             console.log(err1);
         } else {
-            person = docs[0];
-            db.users.remove({_id:mongojs.ObjectId(req.params.id)}, function(err, docs) {
+            person = docs[0]; // be sure to check this!!
+            globalOrdersCollection.users.remove({_id:mongojs.ObjectId(req.params.id)}, function(err, docs) {
                 if (err) {
                     console.log(err);
                 } else {
