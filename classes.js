@@ -43,13 +43,12 @@ class Order {
 
 class Vendor {
     constructor(vendName){
-        this.vendName = vendName;
-        this.foodItems = [];
-        this.orders = [];
+        this(vendName, null);
     }
     constructor(vendName, foodItems){
         this.vendName = vendName;
         this.foodItems = foodItems;
+        this.orders = [];
     }
     addFood(foodItem) {
         this.foodItems.push(foodItem);
@@ -58,7 +57,7 @@ class Vendor {
     addOrder(order) {
         this.orders.push(order);
         // start timer
-        // notify customer through twilio
+        // notify  customer through twilio
         
     }
 

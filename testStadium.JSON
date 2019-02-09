@@ -1,0 +1,37 @@
+{
+  "stadiums": [
+    {
+      "name": "Agganis Arena",
+      "vendors": [
+        {
+          "name": "Commonwealth Concessions",
+          "foodItems": [
+            {
+              "name": "Kayem Hot Dog",
+              "price": 5,
+              "amount": 0
+            }
+          ],
+          "orders": [
+            {
+              "customer": [
+                {
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "phoneNumber": "+18505981845"
+                }
+              ],
+              "foodItems": [
+                {
+                  "name": "Kayem Hot Dog",
+                  "price": 5.50,
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

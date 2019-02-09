@@ -1,0 +1,218 @@
+ {
+   "definitions": {},
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "$id": "http://example.com/root.json",
+   "type": "object",
+   "title": "The Root Schema",
+   "required": [
+     "stadiums"
+   ],
+    "properties": {
+      "stadiums": {
+        "$id": "#/properties/stadiums",
+        "type": "array",
+        "title": "The Stadiums Schema",
+        "items": {
+          "$id": "#/properties/stadiums/items",
+          "type": "object",
+          "title": "The Items Schema",
+          "required": [
+            "name",
+            "vendors"
+          ],
+          "properties": {
+            "name": {
+              "$id": "#/properties/stadiums/items/properties/name",
+              "type": "string",
+              "title": "The Name Schema",
+              "default": "",
+              "examples": [
+                "Agganis Arena"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "vendors": {
+              "$id": "#/properties/stadiums/items/properties/vendors",
+              "type": "array",
+              "title": "The Vendors Schema",
+              "items": {
+                "$id": "#/properties/stadiums/items/properties/vendors/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                  "name",
+                  "foodItems",
+                  "orders"
+                ],
+                "properties": {
+                  "name": {
+                    "$id": "#/properties/stadiums/items/properties/vendors/items/properties/name",
+                    "type": "string",
+                    "title": "The Name Schema",
+                    "default": "",
+                    "examples": [
+                      "Commonwealth Concessions"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "foodItems": {
+                    "$id": "#/properties/stadiums/items/properties/vendors/items/properties/foodItems",
+                    "type": "array",
+                    "title": "The Fooditems Schema",
+                    "items": {
+                      "$id": "#/properties/stadiums/items/properties/vendors/items/properties/foodItems/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "name",
+                        "price",
+                        "amount"
+                      ],
+                      "properties": {
+                        "name": {
+                          "$id": "#/properties/stadiums/items/properties/vendors/items/properties/foodItems/items/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "Kayem Hot Dog"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "price": {
+                          "$id": "#/properties/stadiums/items/properties/vendors/items/properties/foodItems/items/properties/price",
+                          "type": "integer",
+                          "title": "The Price Schema",
+                          "default": 0,
+                          "examples": [
+                            5
+                          ]
+                        },
+                        "amount": {
+                          "$id": "#/properties/stadiums/items/properties/vendors/items/properties/foodItems/items/properties/amount",
+                          "type": "integer",
+                          "title": "The Amount Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        }
+                     }
+                   }
+                 },
+                 "orders": {
+                   "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders",
+                   "type": "array",
+                   "title": "The Orders Schema",
+                   "items": {
+                     "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items",
+                     "type": "object",
+                     "title": "The Items Schema",
+                     "required": [
+                       "customer",
+                       "foodItems"
+                     ],
+                     "properties": {
+                       "customer": {
+                         "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/customer",
+                         "type": "array",
+                         "title": "The Customer Schema",
+                         "items": {
+                           "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/customer/items",
+                           "type": "object",
+                           "title": "The Items Schema",
+                           "required": [
+                             "firstName",
+                             "lastName",
+                             "phoneNumber"
+                           ],
+                           "properties": {
+                             "firstName": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/customer/items/properties/firstName",
+                               "type": "string",
+                               "title": "The Firstname Schema",
+                               "default": "",
+                               "examples": [
+                                 "John"
+                               ],
+                               "pattern": "^(.*)$"
+                             },
+                             "lastName": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/customer/items/properties/lastName",
+                               "type": "string",
+                               "title": "The Lastname Schema",
+                               "default": "",
+                               "examples": [
+                                 "Doe"
+                               ],
+                               "pattern": "^(.*)$"
+                             },
+                             "phoneNumber": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/customer/items/properties/phoneNumber",
+                               "type": "string",
+                               "title": "The Phonenumber Schema",
+                               "default": "",
+                               "examples": [
+                                 "+18505981845"
+                               ],
+                               "pattern": "^(.*)$"
+                             }
+                           }
+                         }
+                       },
+                       "foodItems": {
+                         "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/foodItems",
+                         "type": "array",
+                         "title": "The Fooditems Schema",
+                         "items": {
+                           "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/foodItems/items",
+                           "type": "object",
+                           "title": "The Items Schema",
+                           "required": [
+                             "name",
+                             "price",
+                             "amount"
+                           ],
+                           "properties": {
+                             "name": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/foodItems/items/properties/name",
+                               "type": "string",
+                               "title": "The Name Schema",
+                               "default": "",
+                               "examples": [
+                                 "Kayem Hot Dog"
+                               ],
+                               "pattern": "^(.*)$"
+                             },
+                             "price": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/foodItems/items/properties/price",
+                               "type": "number",
+                               "title": "The Price Schema",
+                               "default": 0.0,
+                               "examples": [
+                                 5.5
+                               ]
+                             },
+                             "amount": {
+                               "$id": "#/properties/stadiums/items/properties/vendors/items/properties/orders/items/properties/foodItems/items/properties/amount",
+                               "type": "integer",
+                               "title": "The Amount Schema",
+                               "default": 0,
+                               "examples": [
+                                 2
+                               ]
+                             }
+                           }
+                         }
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }
+ }
