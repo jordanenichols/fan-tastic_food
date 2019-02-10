@@ -13,7 +13,7 @@ food from vendors online and be notified via text
 1. From Home Directory: ```node```
 2. In the address bar of any web browser: ```localhost:3000```
 
-NOTE: Twilio API implementation is limited to phones that are registered under the account id. Phones not registered will NOT recieve any text messages.
+NOTE: Twilio API implementation is limited to phones that are registered under the account ID. Phones not registered will NOT recieve any text messages.
 
 ## Contributing
 
