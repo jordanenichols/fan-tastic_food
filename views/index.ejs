@@ -56,22 +56,42 @@
                 </ul>
 
             </li>
-            <li>
+            <li> Orders </li>
+            <ul>
+                <% vendor.orders.forEach(function(order){ %>
+                <li>Customer Info</li>
                 <ul>
-                    <% vendor.orders.forEach(function(order){ %>
+                    <% order.customer.forEach(function(cust){ %>
                     <li>
-                        <%=order.customer[0].firstName%>
+                        <%=cust.firstName%>
                     </li>
                     <li>
-                        <%=order.customer[0].lastName%>
+                        <%=cust.lastName%>
                     </li>
                     <li>
-                        <%=order.customer[0].phoneNumber%>
+                        <%=cust.phoneNumber%>
                     </li>
                     <% }) %>
-
                 </ul>
-            </li>
+
+                <li>Orders</li>
+                <ul>
+                    <% order.foodItems.forEach(function(foodItem){ %>
+                    <li>
+                        <%=foodItem.name%>
+                    </li>
+                    <li>
+                        <%=foodItem.price%>
+                    </li>
+                    <li>
+                        <%=foodItem.amount%>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }) %>
+
+            </ul>
+
             <% }) %>
 
         </ul>

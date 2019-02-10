@@ -1,5 +1,4 @@
-db.collection.insert(
-   {
+{
   "stadiums": [
     {
       "name": "Agganis Arena",
@@ -35,4 +34,4 @@ db.collection.insert(
       ]
     }
   ]
-})
+}
