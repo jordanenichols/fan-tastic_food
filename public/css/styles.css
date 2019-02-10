@@ -1,3 +1,173 @@
 body {
-    background: blueviolet;
-}
+    font-family: "Roboto", sans-serif;
+    min-height: 1000px;
+    background: #f2f2f2;
+  }
+  
+  .jumbo {
+    background: #b71c1c;
+    background-size: cover;
+    padding: 0;
+  }
+  .jumbo .row {
+    margin-bottom: 0;
+    text-align: center;
+    color: white;
+    font-size: 0.5em;
+  }
+  .jumbo #logo {
+    max-width: 100%;
+    max-height: 200px;
+    position: relative;
+    margin-top: 10px;
+  }
+  .jumbo h1 {
+    font-size: 5.5em;
+    font-weight: 200;
+    font-variant: small-caps;
+  }
+  
+  /* label color */
+  .input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type="text"]:focus + label {
+    color: #000;
+  }
+  /* label underline focus color */
+  .input-field input[type="text"]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* valid color */
+  .input-field input[type="text"].valid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* invalid color */
+  .input-field input[type="text"].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+  input[type="text"]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  input[type="text"]:not(.browser-default):focus:not([readonly]) + label {
+    color: #000;
+  }
+  input[type="tel"]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  input[type="tel"]:not(.browser-default):focus:not([readonly]) + label {
+    color: #000;
+  }
+  .carousel {
+    box-shadow: 0 0 5px black;
+    border-radius: 15px;
+  }
+  .carousel .input-field.col label {
+    left: 0rem;
+  }
+  .carousel .carousel-item {
+    height: 100% !important;
+    transition: background .5s;  
+    background: white;
+    text-align: center;
+    padding: 40px;
+    padding-top: 15px;
+    border-radius: 16px;  
+  }
+  
+  .carousel .carousel-item>img {
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+  }
+  
+  
+  .indicators li {
+    box-shadow: 0 0 50px black;
+  }
+  
+  .carousel .indicators .indicator-item.active { 
+    background-color: rgba(200,100,100,.8) !important;
+  }
+  
+  .leftButton {
+    padding: 35px 30px;
+      border-radius: 50px;
+      line-height: 0;
+      left: -25px;
+      top: -50px;
+  }
+  .rightButton {
+      float: right;
+      padding: 35px 30px;
+      border-radius: 50px;
+      line-height: 0;
+      left: 25px;
+      top: -50px;
+  }
+  
+  
+  #submit {
+    color: white !important;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  
+  
+  .citiesList {
+    padding: 20px 0;
+    background-image: url(https://images.pexels.com/photos/41257/pexels-photo-41257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-size: cover;
+    background-position: center bottom;
+    background-blend-mode: lighten;
+    background-color: rgba(155, 50, 50, 0.6);
+    margin-bottom: 0;
+    text-shadow: 2px 2px 8px #000000;
+  }
+  .citiesList h4 {
+    font-weight: 300;
+  }
+  
+  .citiesList ul {
+    margin: 0;
+  }
+  .citiesList ul li {
+    padding: 5px 0;
+  }
+  
+  
+  footer {
+    font-size: 1.25em;
+  }
+  footer img {
+    max-width: 100%;
+  }
+  footer ul {
+    text-align: center;
+  }
+  footer ul li {
+    display: inline;
+    padding: 5px;
+    margin: 5px;
+  }
+  footer #logo {
+    max-height: 200px;
+  }
+  
+  .contactBanner {
+    margin-bottom: 0;
+  }
+  

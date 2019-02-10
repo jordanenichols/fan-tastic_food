@@ -1,8 +1,4 @@
 class Stadium {
-    constructor(stadiumName){
-        this.stadiumName = stadiumName;
-        this.vendors = [];
-    }
     constructor(stadiumName, vendors) {
         this.stadiumName = stadiumName;
         this.vendors = vendors;
@@ -42,9 +38,6 @@ class Order {
 }
 
 class Vendor {
-    constructor(vendName){
-        this(vendName, null);
-    }
     constructor(vendName, foodItems){
         this.vendName = vendName;
         this.foodItems = foodItems;
@@ -61,4 +54,12 @@ class Vendor {
         
     }
 
+}
+
+module.exports = {
+    Stadium: Stadium,
+    Customer: Customer,
+    FoodItem: FoodItem,
+    Order: Order,
+    Vendor: Vendor
 }

@@ -3,8 +3,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
-
 const { check, validationResult } = require('express-validator/check');
+var Classes = require('./classes.js'); // all my user-defined classes
 var app = express();
 
 // MongoJs middleware
@@ -27,6 +27,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get('/', function (req, res) {
+    db.globalOrdersCollection.find(function (err, docs) {
+        if(err) console.log(err);
+        // console.log(docs[0].stadiums);
+        // var firstStadium = docs[0].stadiums[0];
+        // firstStadium.name = "yo"; // this is how we are going to update the main table entry
+        // console.log(firstStadium.name);
+        res.render('index', {
+            title: 'Stadiums',
+            stadiums: docs[0].stadiums, // array of stadiums
+            errors: null
+        });
+        // console.log(docs[0].stadiums);
+        res.end('hi');
+    });
+
+});
+
+
+app.get('/old', function (req, res) {
     db.globalOrdersCollection.find(function (err, docs) {
         if(err) console.log(err);
         // console.log(docs[0].stadiums);
