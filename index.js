@@ -5,6 +5,9 @@ var mongojs = require('mongojs');
 var expressValidator = require('express-validator');
 const { check, validationResult } = require('express-validator/check');
 var Classes = require('./classes.js'); // all my user-defined classes
+const authToken = '7cc746ac155a43419d4479a58d0cc87f';
+const accountSid = 'AC8fa7cda0e72502b8f5707889348a1b88';
+const client = require('twilio')(accountSid, authToken);
 var app = express();
 
 // MongoJs middleware
@@ -25,24 +28,51 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+function orderConfirmation(firstName, lastName, phoneNum) {
+    setTimeout(() => {
+        alert1(phoneNum)
+    }, 50000);
+    var messageText = 'Hello, ' + firstName + ' ' + lastName + ', your order has been placed and will be ready in 50 seconds.⏱😋🍴';
+    client.messages
+    .create({
+       body: messageText,
+       from: '+16172748307',
+       to: phoneNum
+     })
+    .then(message => console.log(message.sid))
+    .done();
+}
+
+function alert1(phoneNumber) {
+    client.messages
+    .create({
+       body: 'Your food is ready for pickup.',
+       from: '+16172748307',
+       to: phoneNumber
+     })
+    .then(message => console.log(message.sid))
+    .done();
+}
+
+
+
 // Home route
 app.get('/', function (req, res) {
     db.globalOrdersCollection.find(function (err, docs) {
         if(err) console.log(err);
-        // console.log(docs[0].stadiums);
-        // var firstStadium = docs[0].stadiums[0];
-        // firstStadium.name = "yo"; // this is how we are going to update the main table entry
-        // console.log(firstStadium.name);
         res.render('index', {
             title: 'Stadiums',
             stadiums: docs[0].stadiums, // array of stadiums
-            errors: null
+            errors: [],
+            messages: null
         });
-        // console.log(docs[0].stadiums);
         res.end('hi');
     });
 
 });
+
+
+
 
 
 app.get('/old', function (req, res) {
@@ -63,58 +93,49 @@ app.get('/old', function (req, res) {
 
 });
 
-// Add order route
-// app.post('/submit', [
-    // // First name is required
-    // check('first_name', "First name is required").isAlpha().isLength({
-    //     min: 1
-    // }),
-    // // Last Name is required
-    // check('last_name', "Last name is required").isAlpha().isLength({
-    //     min: 1
-    // }),
-    // check('email', "Valid email required").isEmail()
-// ], (req, res) => {
-    // console.log(req.body);
+
+app.post('/submitOrder', [
+    // First name is required
+    check('firstName', "First name is required").isAlpha().isLength({
+        min: 1
+    }),
+    // Last Name is required
+    check('lastName', "Last name is required").isAlpha().isLength({
+        min: 1
+    }),
+    check('phone', "Valid phone is required").isMobilePhone(),
+    check('stadium', "Stadium is required").isNumeric(),
+    check('vendor', "Vendor is required").isNumeric(),
+    check('amount', "You must order at least one item")
+], function(req, res){
     // Finds the validation errors in this request and wraps them in an object with handy functions
-    // const errors = validationResult(req);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log(errors);
+        res.render('index', {
+            title: 'Error',
+            users: null,
+            errors: errors.array(),
+            messages: null
+        });
+        res.end();
+    } else {
+        console.log(req.body);
+        var customer = new Classes.Customer(req.body.firstName, req.body.lastName, req.body.phone);
+        // var stadiumInfo = db.globalOrdersCollection.find(function (err, docs) { console.log(docs[0].stadiums); });
+        orderConfirmation(customer.firstName, customer.lastName, customer.phoneNumber);
 
-    // if (!errors.isEmpty()) {
-    //     db.globalOrdersCollection.find(function (err, docs) {
-    //         res.render('index', {
-    //             title: 'Customers',
-    //             users: docs[0].stadiums,
-    //             errors: errors.array()
-    //         });
-    //     })
 
-        // return res.status(422).json({
-        //     errors: errors.array()
-        // });
-    // } else {
-    //     var newUser = {
-    //         first_name: req.body.first_name,
-    //         last_name: req.body.last_name,
-    //         email: req.body.email
-    //     }
 
-    //     db.globalOrdersCollection.insert(newUser, function (err, result) {
-    //         if (err) console.log(err);
-    //         res.redirect('/');
-    //         return;
-    //     });
-    //     console.log(newUser);
-        //   User.create({
-        //     username: req.body.username,
-        //     password: req.body.password
-        //   }).then(user => res.json(user));
-    // }
-//     res.end('data-sent');
-// });
+        res.render('index', {
+            title: 'Success',
+            users: null,
+            errors: [],
+            messages: 'Success! Feel free to resubmit this form. You will receive a text shortly when your food is ready! 🍔🍕😋'
+        });
 
-app.post('/submitOrder', function(req, res){
-    console.log(req.body);
-    res.end('yay');
+        res.end('yay');
+    }
 });
 
 

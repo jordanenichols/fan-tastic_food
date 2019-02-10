@@ -171,3 +171,23 @@ body {
     margin-bottom: 0;
   }
   
+
+  h2.message {
+    background: #cafcc7;
+    color: #222222;
+    font-size: 3em;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px dashed green;
+  }
+
+  h2.error {
+    background: #fcc7c7;
+    color: #222222;
+    font-size: 3em;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px dashed red;
+  }

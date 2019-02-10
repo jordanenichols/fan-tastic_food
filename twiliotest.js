@@ -8,7 +8,7 @@ orderConfirmation('Paul Stephen', 'Hutchinson Maltaghati', phoneNumber);
 function orderConfirmation(firstName, lastName, phoneNum) {
     setTimeout(() => {
         alert1(phoneNum)
-    }, 5000);
+    }, 50000);
     var messageText = 'Hello ' + firstName + ' ' + lastName + ', your order has been placed and will be ready in 50 seconds.';
     client.messages
     .create({

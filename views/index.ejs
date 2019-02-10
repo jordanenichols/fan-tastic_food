@@ -12,6 +12,12 @@
         </svg></div>
       <div class="col s12">
         <h1>Fan-Tastic Food</h1>
+        <% if(messages){ %>
+        <h2 class="message"><%=messages%></h2>
+        <% } %>
+        <% errors.forEach(function(error){ %>
+          <h2 class="error"><%=error.msg%></h2>
+          <% }) %>
       </div>
     </div>
   </div>
@@ -75,37 +81,25 @@
   <div class="col s12 center">
     <h4>Areas We Serve</h4>
   </div>
-  <div class="col s12 m3 center">
+  <div class="col s12 m4 center">
     <ul>
       <li>Anthem</li>
       <li>El Mirage</li>
       <li>New River</li>
-      <li>Scottsdale</li>
     </ul>
   </div>
-  <div class="col s12 m3 center">
+  <div class="col s12 m4 center">
     <ul>
       <li>Black Canyon City</li>
       <li>Glendale</li>
       <li>Pardise Valley</li>
-      <li>Sun City</li>
     </ul>
   </div>
-  <div class="col s12 m3 center">
-    <ul>
-      <li>Glendale</li>
-      <li>Luke AFB</li>
-      <li>Peoria</li>
-      <li>Sun City West</li>
-    </ul>
-  </div>
-  <div class="col s12 m3 center">
+  <div class="col s12 m4 center">
     <ul>
       <li>Cave Creek</li>
       <li>Morristown</li>
       <li>Phoenix</li>
-      <li>Surprise</li>
-      <li>Youngtown</li>
     </ul>
   </div>
 </div>
