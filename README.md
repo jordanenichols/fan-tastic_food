@@ -1,12 +1,11 @@
 # Fan-Tastic Food
 
-
 Fan-Tastic Food is a web app designed for use in arenas/stadiums, where the user may order
 food from vendors online and be notified via text
 
 ## Installation
 
-Use the package manager ```npm``` with commands ```npm install``` and ```npm run initDatabase``` to install all dependencies and initialize the database. After installing dependencies, MongoDB must be installed. 
+Use the package manager ```npm``` with commands ```npm install``` and ```npm run init``` to install all dependencies and initialize the application for the first time. /After installing dependencies, MongoDB must be installed./
 
 ## Usage
 
