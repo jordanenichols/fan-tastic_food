@@ -120,7 +120,6 @@ app.post('/submitOrder', [
         });
         res.end();
     } else {
-        console.log(req.body);
         var customer = new Classes.Customer(req.body.firstName, req.body.lastName, req.body.phone);
         // var stadiumInfo = db.globalOrdersCollection.find(function (err, docs) { console.log(docs[0].stadiums); });
         orderConfirmation(customer.firstName, customer.lastName, customer.phoneNumber);
@@ -164,6 +163,6 @@ app.delete("/users/delete/:id", function(req, res){
 
 
 app.listen(3000, function () {
-    console.log('Server started on port 300...');
+    console.log('Server started on port 3000...');
 });
 

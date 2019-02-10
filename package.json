@@ -4,7 +4,7 @@
   "description": "Avoid the lines, order food right from your seat!",
   "main": "index.js",
   "scripts": {
-    "init": "node createDatabase.js && node index.js"
+    "init": "node createDatabase.js && node index.js "
   },
   "repository": {
     "type": "git",
