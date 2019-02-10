@@ -5,8 +5,8 @@ food from vendors online and be notified via text
 
 ## Installation
 
-    1. Install MongoDB
-    2. Use the package manager ```npm``` with commands ```npm install``` and ```npm run init``` to install all dependencies and initialize the application for the first time.
+1. Install MongoDB
+2. Use the package manager ```npm``` with commands ```npm install``` and ```npm run init``` to install all dependencies and initialize the application for the first time.
 
 ## Usage
 
