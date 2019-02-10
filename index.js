@@ -29,7 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
     db.globalOrdersCollection.find(function (err, docs) {
         if(err) console.log(err);
-        console.log(docs[0].stadiums);
+        // console.log(docs[0].stadiums);
+        // var firstStadium = docs[0].stadiums[0];
+        // firstStadium.name = "yo"; // this is how we are going to update the main table entry
+        // console.log(firstStadium.name);
         res.render('index', {
             title: 'Stadiums',
             stadiums: docs[0].stadiums, // array of stadiums

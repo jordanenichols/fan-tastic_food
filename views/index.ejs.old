@@ -56,7 +56,41 @@
                 </ul>
 
             </li>
-            
+            <li> Orders </li>
+            <ul>
+                <% vendor.orders.forEach(function(order){ %>
+                <li>Customer Info</li>
+                <ul>
+                    <% order.customer.forEach(function(cust){ %>
+                    <li>
+                        <%=cust.firstName%>
+                    </li>
+                    <li>
+                        <%=cust.lastName%>
+                    </li>
+                    <li>
+                        <%=cust.phoneNumber%>
+                    </li>
+                    <% }) %>
+                </ul>
+
+                <li>Orders</li>
+                <ul>
+                    <% order.foodItems.forEach(function(foodItem){ %>
+                    <li>
+                        <%=foodItem.name%>
+                    </li>
+                    <li>
+                        <%=foodItem.price%>
+                    </li>
+                    <li>
+                        <%=foodItem.amount%>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% }) %>
+
+            </ul>
 
             <% }) %>
 
