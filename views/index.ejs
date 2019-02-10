@@ -1,106 +1,112 @@
 <% include partials/header %>
 
 <div class="header">
-    <div class="jumbo">
-      <div class="row">
-        <div class="col s12"><svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 223.27 336.23"><defs><style>.cls-1{stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}</style></defs><title>FF1</title><polygon class="cls-1" points="220.77 96.36 56.99 96.36 56.99 41.76 96.54 41.76 96.54 72.52 135.51 72.52 135.51 2.5 2.5 2.5 2.5 41.76 17 41.76 17 197.62 2.5 197.62 2.5 236.73 72.23 236.73 72.23 197.62 56.99 197.62 56.99 139.17 102 139.17 102 294.62 87.5 294.62 87.5 333.73 157.23 333.73 157.23 294.62 141.99 294.62 141.99 236.17 193.12 236.17 193.12 197.06 141.99 197.06 141.99 138.76 181.54 138.76 181.54 169.52 220.51 169.52 220.51 100.36 220.77 100.36 220.77 96.36"/></svg></div>
-        <div class="col s12">
-          <h1>Fan-Tastic Food</h1>
-        </div>
+  <div class="jumbo">
+    <div class="row">
+      <div class="col s12"><svg id="logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 223.27 336.23">
+          <defs>
+            <style>.cls-1{stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}</style>
+          </defs>
+          <title>FF1</title>
+          <polygon class="cls-1" points="220.77 96.36 56.99 96.36 56.99 41.76 96.54 41.76 96.54 72.52 135.51 72.52 135.51 2.5 2.5 2.5 2.5 41.76 17 41.76 17 197.62 2.5 197.62 2.5 236.73 72.23 236.73 72.23 197.62 56.99 197.62 56.99 139.17 102 139.17 102 294.62 87.5 294.62 87.5 333.73 157.23 333.73 157.23 294.62 141.99 294.62 141.99 236.17 193.12 236.17 193.12 197.06 141.99 197.06 141.99 138.76 181.54 138.76 181.54 169.52 220.51 169.52 220.51 100.36 220.77 100.36 220.77 96.36" />
+        </svg></div>
+      <div class="col s12">
+        <h1>Fan-Tastic Food</h1>
       </div>
     </div>
   </div>
-  
-  <div class="container">
-    <h1>Order Food</h1>
-    <div class="row">
-      <form class="col s12" action="/submit">
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="firstName" type="text" class="validate">
-            <label for="firstName">First Name</label>
-          </div>
-          <div class="input-field col s11 m6 push-s1">
-            <input id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
-          </div>
-  
-          <div class="input-field col s12">
-            <i class="material-icons prefix">phone</i>
-            <input id="tel" type="tel" class="validate">
-            <label for="tel">Telephone</label>
-          </div>
-          <i class="material-icons col s1">map</i>
-          <div class="input-field col s11">
-            <select id="stadium">
-        <option value="" disabled selected>Choose your option</option>
-  <!--       <option value="1">Option 1</option> -->
-            </select>
-            <label>Choose Your Stadium Location</label>
-          </div>
-          <i class="material-icons col s1">store_mall_directory</i>
-          <div class="input-field col s11">
-            <select id="vendor">
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Option 1</option>
-      </select>
-            <label>Choose Vendor</label>
-          </div>
+</div>
+
+<div class="container">
+  <h1>Order Food</h1>
+  <div class="row">
+    <form class="col s12" method="POST" action="/submitOrder">
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="firstName" type="text" class="validate" name="firstName">
+          <label for="firstName">First Name</label>
         </div>
-  
-        <br>
-        <div class="carousel carousel-slider">
-                
+        <div class="input-field col s11 m6 push-s1">
+          <input id="last_name" type="text" class="validate" name="lastName">
+          <label for="last_name">Last Name</label>
         </div>
-        <div class="waves-effect waves btn white black-text leftButton">&lt;</div>
-        <div class="waves-effect waves btn white black-text rightButton">&gt;</div>
-        <div class="row">
-          <input class="waves-effect s8 push-s2 col red darken-3 white-text" id="submit" type="submit" value="Order Food">
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">phone</i>
+          <input id="tel" type="tel" class="validate" name="phone">
+          <label for="tel">Telephone</label>
         </div>
-        
-      </form>
-    </div>
+        <i class="material-icons col s1">map</i>
+        <div class="input-field col s11">
+          <select id="stadium" name="stadium">
+            <option value="" disabled selected>Choose your option</option>
+            <!--<option value="1">Option 1</option> -->
+          </select>
+          <label>Choose Your Stadium Location</label>
+        </div>
+        <i class="material-icons col s1">store_mall_directory</i>
+        <div class="input-field col s11">
+          <select id="vendor" name="vendor">
+            <option value="" disabled selected>Choose your option</option>
+            <!-- <option value="1">Option 1</option> -->
+          </select>
+          <label>Choose Vendor</label>
+        </div>
+      </div>
+
+      <br>
+      <div class="carousel carousel-slider">
+
+      </div>
+      <div class="waves-effect waves btn white black-text leftButton">&lt;</div>
+      <div class="waves-effect waves btn white black-text rightButton">&gt;</div>
+      <div class="row">
+        <input class="waves-effect s8 push-s2 col red darken-3 white-text" id="submit" type="submit" value="Order Food">
+      </div>
+
+    </form>
   </div>
-  
-  <br><br>
-  
-  <div class="row citiesList white-text flow-text">
-    <div class="col s12 center">
-      <h4>Areas We Serve</h4>
-    </div>
-    <div class="col s12 m3 center">
-      <ul>
-        <li>Anthem</li>
-        <li>El Mirage</li>
-        <li>New River</li>
-        <li>Scottsdale</li>
-      </ul>
-    </div>
-    <div class="col s12 m3 center">
-      <ul>
-        <li>Black Canyon City</li>
-        <li>Glendale</li>
-        <li>Pardise Valley</li>
-        <li>Sun City</li>
-      </ul>
-    </div>
-    <div class="col s12 m3 center">
-      <ul>
-        <li>Glendale</li>
-        <li>Luke AFB</li>
-        <li>Peoria</li>
-        <li>Sun City West</li>
-      </ul>
-    </div>
-    <div class="col s12 m3 center">
-      <ul>
-        <li>Cave Creek</li>
-        <li>Morristown</li>
-        <li>Phoenix</li>
-        <li>Surprise</li>
-        <li>Youngtown</li>
-      </ul>
-    </div>
+</div>
+
+<br><br>
+
+<div class="row citiesList white-text flow-text">
+  <div class="col s12 center">
+    <h4>Areas We Serve</h4>
   </div>
-  <% include partials/footer %>
+  <div class="col s12 m3 center">
+    <ul>
+      <li>Anthem</li>
+      <li>El Mirage</li>
+      <li>New River</li>
+      <li>Scottsdale</li>
+    </ul>
+  </div>
+  <div class="col s12 m3 center">
+    <ul>
+      <li>Black Canyon City</li>
+      <li>Glendale</li>
+      <li>Pardise Valley</li>
+      <li>Sun City</li>
+    </ul>
+  </div>
+  <div class="col s12 m3 center">
+    <ul>
+      <li>Glendale</li>
+      <li>Luke AFB</li>
+      <li>Peoria</li>
+      <li>Sun City West</li>
+    </ul>
+  </div>
+  <div class="col s12 m3 center">
+    <ul>
+      <li>Cave Creek</li>
+      <li>Morristown</li>
+      <li>Phoenix</li>
+      <li>Surprise</li>
+      <li>Youngtown</li>
+    </ul>
+  </div>
+</div>
+<% include partials/footer %>

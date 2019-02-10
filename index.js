@@ -1,8 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-var expressValidator = require('express-validator');
 var mongojs = require('mongojs');
+var expressValidator = require('express-validator');
 const { check, validationResult } = require('express-validator/check');
 var Classes = require('./classes.js'); // all my user-defined classes
 var app = express();
@@ -16,10 +16,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Bodyparser middleware
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
+app.use(bodyParser.json());
 
 // Set static path
 app.use(express.static(path.join(__dirname, 'public')));
@@ -63,51 +63,58 @@ app.get('/old', function (req, res) {
 
 });
 
-// Add user route
-app.post('/users/add', [
-    // First name is required
-    check('first_name', "First name is required").isAlpha().isLength({
-        min: 1
-    }),
-    // Last Name is required
-    check('last_name', "Last name is required").isAlpha().isLength({
-        min: 1
-    }),
-    check('email', "Valid email required").isEmail()
-], (req, res) => {
+// Add order route
+// app.post('/submit', [
+    // // First name is required
+    // check('first_name', "First name is required").isAlpha().isLength({
+    //     min: 1
+    // }),
+    // // Last Name is required
+    // check('last_name', "Last name is required").isAlpha().isLength({
+    //     min: 1
+    // }),
+    // check('email', "Valid email required").isEmail()
+// ], (req, res) => {
+    // console.log(req.body);
     // Finds the validation errors in this request and wraps them in an object with handy functions
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        db.globalOrdersCollection.find(function (err, docs) {
-            res.render('index', {
-                title: 'Customers',
-                users: docs[0].stadiums,
-                errors: errors.array()
-            });
-        })
+    // const errors = validationResult(req);
+
+    // if (!errors.isEmpty()) {
+    //     db.globalOrdersCollection.find(function (err, docs) {
+    //         res.render('index', {
+    //             title: 'Customers',
+    //             users: docs[0].stadiums,
+    //             errors: errors.array()
+    //         });
+    //     })
 
         // return res.status(422).json({
         //     errors: errors.array()
         // });
-    } else {
+    // } else {
+    //     var newUser = {
+    //         first_name: req.body.first_name,
+    //         last_name: req.body.last_name,
+    //         email: req.body.email
+    //     }
 
-        var newUser = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email
-        }
-
-        db.globalOrdersCollection.insert(newUser, function (err, result) {
-            if (err) console.log(err);
-            res.redirect('/');
-            return;
-        });
-        console.log(newUser);
+    //     db.globalOrdersCollection.insert(newUser, function (err, result) {
+    //         if (err) console.log(err);
+    //         res.redirect('/');
+    //         return;
+    //     });
+    //     console.log(newUser);
         //   User.create({
         //     username: req.body.username,
         //     password: req.body.password
         //   }).then(user => res.json(user));
-    }
+    // }
+//     res.end('data-sent');
+// });
+
+app.post('/submitOrder', function(req, res){
+    console.log(req.body);
+    res.end('yay');
 });
 
 

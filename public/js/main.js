@@ -468,8 +468,7 @@ function initFoodItems(carousel, stadiumIndex) {
     row.setAttribute("class", "row");
     var p1 = document.createElement("p");
     p1.setAttribute("class", "col s10 red-text text-darken-3");
-    p1.innerHTML =
-      stadiums[stadiumIndex].vendors[0].foodItems[k].name;
+    p1.innerHTML = stadiums[stadiumIndex].vendors[0].foodItems[k].name;
     var p2 = document.createElement("p");
     p2.setAttribute("class", "col s2 red-text text-darken-3");
     p2.innerHTML =
@@ -481,9 +480,10 @@ function initFoodItems(carousel, stadiumIndex) {
     row2.setAttribute("class", "input-field row");
     var input = document.createElement("input");
     input.setAttribute("value", 0);
-    // input.setAttribute('id', 'first_name2');
+    input.setAttribute('id', 'first_name2');
     input.setAttribute("type", "text");
     input.setAttribute("class", "validate col s8");
+    input.setAttribute("name", "amount");
     var label = document.createElement("label");
     label.setAttribute("class", "active");
     label.setAttribute("for", "first_name2");
