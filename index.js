@@ -161,8 +161,10 @@ app.delete("/users/delete/:id", function(req, res){
 
 
 
-
 app.listen(3000, function () {
     console.log('Server started on port 3000...');
 });
 
+// app.listen(80, process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '127.0.0.2', function(){
+//     console.log("Now starting at:", process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '127.0.0.2', ':80...');
+// })
